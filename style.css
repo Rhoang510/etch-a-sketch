@@ -1,0 +1,27 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.newGrid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+#gridContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#container {
+    display: grid;
+    height: 500px;
+    width: 500px;
+    grid-template-rows: repeat(var(--gird-rows), 1fr);
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+}
+
+.grid-item {
+    border: 1px solid black;
+}
