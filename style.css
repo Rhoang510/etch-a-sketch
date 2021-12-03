@@ -9,19 +9,21 @@ body {
     align-items: center;
     padding: 20px;
 }
+
 #gridContainer {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 #container {
     display: grid;
-    height: 500px;
-    width: 500px;
-    grid-template-rows: repeat(var(--gird-rows), 1fr);
-    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    height: 640px;
+    width: 640px;
+    grid-template-columns: repeat(var(--columns), 1fr);
+    grid-template-rows: repeat(var(--rows), 1fr);
 }
 
-.grid-item {
+.box {
     border: 1px solid black;
 }
