@@ -1,7 +1,8 @@
 const container = document.querySelector("#container");
 const clearGrid = document.querySelector(".clear");
-
-makeGrid(16);
+const rgb = document.querySelector(".rgb");
+const black = document.querySelector(".black");
+const changeSize = document.querySelector(".changeSize");
 
 function makeGrid(gridSize) {
     container.style.setProperty("--columns", gridSize);
@@ -11,17 +12,46 @@ function makeGrid(gridSize) {
         div.classList.add("box");
         container.appendChild(div);
     };
+        const boxes = document.querySelectorAll(".box");
+        boxes.forEach((box) => {
+            box.addEventListener ("mouseover", () => {
+                box.style.backgroundColor = "red";
+        });
+    });
 };
 
-const boxes = document.querySelectorAll(".box");
+makeGrid(16);
 
-boxes.forEach((box) => {
-    box.addEventListener ("mouseover", () => {
-        box.style.backgroundColor = "red";
+clearGrid.addEventListener("click", () => {
+    const boxes = document.querySelectorAll(".box");
+    boxes.forEach((box) => {
+        box.removeAttribute("style");
     });
 });
 
-clearGrid.addEventListener("click", () => {
+rgb.addEventListener("click", () => {
+    const boxes = document.querySelectorAll(".box");
+    boxes.forEach((box) => {
+        box.addEventListener("mouseover", () => {
+         let r = Math.floor(Math.random() * 255);
+         let g = Math.floor(Math.random() * 255);
+         let b = Math.floor(Math.random() * 255);
+         box.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+        });
+    });
+});
+
+black.addEventListener("click", () => {
+    const boxes = document.querySelectorAll(".box");
+    boxes.forEach((box) => {
+        box.addEventListener("mouseover", () => {
+            box.style.backgroundColor = "black";
+        });
+    });
+});
+
+changeSize.addEventListener("click", () => {
+    const boxes = document.querySelectorAll(".box");
     boxes.forEach((box) => {
         box.remove();
     });
@@ -30,10 +60,9 @@ clearGrid.addEventListener("click", () => {
 
 function changeGrid() {
     let changeGrid = parseInt(prompt("Enter the size of grid you want. (2-100)", ""));
-    let gridSize = changeGrid;
     if (changeGrid > 1 && changeGrid <= 100) {
-         makeGrid(gridSize);
+         makeGrid(changeGrid);
     } else {
          alert("Please choose a number between 2 and 100.");
     }
-}
+};
