@@ -3,6 +3,7 @@ const clearGrid = document.querySelector(".clear");
 const rgb = document.querySelector(".rgb");
 const black = document.querySelector(".black");
 const changeSize = document.querySelector(".changeSize");
+const size = document.querySelector(".size");
 
 function makeGrid(gridSize) {
     container.style.setProperty("--columns", gridSize);
@@ -52,17 +53,14 @@ black.addEventListener("click", () => {
 
 changeSize.addEventListener("click", () => {
     const boxes = document.querySelectorAll(".box");
-    boxes.forEach((box) => {
-        box.remove();
-    });
-    changeGrid();
-});
-
-function changeGrid() {
     let changeGrid = parseInt(prompt("Enter the size of grid you want. (2-100)", ""));
     if (changeGrid > 1 && changeGrid <= 100) {
-         makeGrid(changeGrid);
-    } else {
-         alert("Please choose a number between 2 and 100.");
-    }
-};
+        boxes.forEach((box) => {
+            box.remove();
+        }); makeGrid(changeGrid);
+        } else {
+            alert("Please choose a number between 2 and 100.");
+        }
+});
+
+
