@@ -68,8 +68,8 @@ button:active {
     display: grid;
     background-color: rgb(49, 49, 49);
     box-shadow: 7px 7px black;
-    height: 600px;
-    width: 600px;
+    height: 540px;
+    width: 540px;
     grid-template-columns: repeat(var(--columns), 1fr);
     grid-template-rows: repeat(var(--rows), 1fr);
 }
