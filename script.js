@@ -16,12 +16,13 @@ function makeGrid(gridSize) {
         const boxes = document.querySelectorAll(".box");
         boxes.forEach((box) => {
             box.addEventListener ("mouseover", () => {
-                box.style.backgroundColor = "red";
+                box.style.backgroundColor = "black";
         });
     });
 };
 
 makeGrid(16);
+size.textContent = "Size: 16 x 16";
 
 clearGrid.addEventListener("click", () => {
     const boxes = document.querySelectorAll(".box");
@@ -34,10 +35,7 @@ rgb.addEventListener("click", () => {
     const boxes = document.querySelectorAll(".box");
     boxes.forEach((box) => {
         box.addEventListener("mouseover", () => {
-         let r = Math.floor(Math.random() * 255);
-         let g = Math.floor(Math.random() * 255);
-         let b = Math.floor(Math.random() * 255);
-         box.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+         box.style.backgroundColor = `hsl(${Math.random() * 360}, 80%, 50%)`;
         });
     });
 });
@@ -58,6 +56,8 @@ changeSize.addEventListener("click", () => {
         boxes.forEach((box) => {
             box.remove();
         }); makeGrid(changeGrid);
+        size.textContent = "";
+        size.textContent = `Size: ${changeGrid} x ${changeGrid}`;
         } else {
             alert("Please choose a number between 2 and 100.");
         }

@@ -9,31 +9,6 @@ body {
     background-color: rgb(33, 38, 59);
 }
 
-button {
-    width: 100px;
-    height: 30px;
-    border-radius: 5px;
-}
-
-button:hover {
-    border: 1px solid red;
-    background-color: rgb(221, 221, 221);
-}
-
-button:active {
-    transform: translate(2px, 2px);
-}
-
-.rgb:focus {
-    background-color: rgb(117, 117, 117);
-    transition: all 0.3s ease-in-out;
-}
-
-.black:focus {
-    background-color: rgb(117, 117, 117);
-    transition: all 0.3s ease-in-out;
-}
-
 .header {
     display: flex;
     justify-content: center;
@@ -54,7 +29,6 @@ button:active {
 .size {
     text-align: center;
     color: white;
-    
 }
 
 #gridContainer {
@@ -73,6 +47,32 @@ button:active {
     grid-template-columns: repeat(var(--columns), 1fr);
     grid-template-rows: repeat(var(--rows), 1fr);
 }
+
+button {
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+button:hover {
+    border: 1px solid red;
+    background-color: rgb(221, 221, 221);
+}
+
+button:active {
+    transform: translate(2px, 2px);
+}
+
+.rgb:focus {
+    background-color: rgb(114, 168, 230);
+    transition: all 0.3s ease-in-out;
+}
+
+.black:focus {
+    background-color: rgb(114, 168, 230);
+    transition: all 0.3s ease-in-out;
+}
+
 
 #icon {
     display: flex;
