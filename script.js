@@ -4,6 +4,7 @@ const rgb = document.querySelector(".rgb");
 const black = document.querySelector(".black");
 const changeSize = document.querySelector(".changeSize");
 const size = document.querySelector(".size");
+const colorPicker = document.querySelector("#colorPicker");
 
 function makeGrid(gridSize) {
     container.style.setProperty("--columns", gridSize);
@@ -24,6 +25,16 @@ function makeGrid(gridSize) {
 makeGrid(16);
 size.textContent = "Size: 16 x 16";
 
+colorPicker.addEventListener("change", () => {
+    const newColor = document.querySelector("#colorPicker").value
+    const boxes = document.querySelectorAll(".box");
+    boxes.forEach((box) => {
+        box.addEventListener("mouseover", () => {
+         box.style.backgroundColor = newColor;
+        });
+    });
+});
+
 clearGrid.addEventListener("click", () => {
     const boxes = document.querySelectorAll(".box");
     boxes.forEach((box) => {
@@ -40,6 +51,8 @@ rgb.addEventListener("click", () => {
     });
 });
 
+
+
 black.addEventListener("click", () => {
     const boxes = document.querySelectorAll(".box");
     boxes.forEach((box) => {
@@ -50,13 +63,14 @@ black.addEventListener("click", () => {
 });
 
 changeSize.addEventListener("click", () => {
+    const bgColor = document.querySelectorAll(".box").style.backgroundColor;
     const boxes = document.querySelectorAll(".box");
     let changeGrid = parseInt(prompt("Enter the size of grid you want. (2-100)", ""));
     if (changeGrid > 1 && changeGrid <= 100) {
         boxes.forEach((box) => {
             box.remove();
         }); makeGrid(changeGrid);
-        size.textContent = "";
+        boxes.style.backgroundColor = bgColor;
         size.textContent = `Size: ${changeGrid} x ${changeGrid}`;
         } else {
             alert("Please choose a number between 2 and 100.");

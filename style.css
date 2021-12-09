@@ -54,7 +54,8 @@ button {
     border-radius: 5px;
 }
 
-button:hover {
+button:hover,
+input:hover {
     border: 1px solid red;
     background-color: rgb(221, 221, 221);
 }
