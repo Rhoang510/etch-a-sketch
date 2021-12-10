@@ -26,11 +26,30 @@ makeGrid(16);
 size.textContent = "Size: 16 x 16";
 
 colorPicker.addEventListener("change", () => {
-    const newColor = document.querySelector("#colorPicker").value
+    const newColor = document.querySelector("#colorPicker").value;
     const boxes = document.querySelectorAll(".box");
     boxes.forEach((box) => {
         box.addEventListener("mouseover", () => {
-         box.style.backgroundColor = newColor;
+            box.style.backgroundColor = newColor;
+        });
+    });
+});
+
+
+rgb.addEventListener("click", () => {
+    const boxes = document.querySelectorAll(".box");
+    boxes.forEach((box) => {
+        box.addEventListener("mouseover", () => {
+            box.style.backgroundColor = `hsl(${Math.random() * 360}, 80%, 50%)`;
+        });
+    });
+});
+
+black.addEventListener("click", () => {
+    const boxes = document.querySelectorAll(".box");
+    boxes.forEach((box) => {
+        box.addEventListener("mouseover", () => {
+            box.style.backgroundColor = "black";
         });
     });
 });
@@ -42,35 +61,13 @@ clearGrid.addEventListener("click", () => {
     });
 });
 
-rgb.addEventListener("click", () => {
-    const boxes = document.querySelectorAll(".box");
-    boxes.forEach((box) => {
-        box.addEventListener("mouseover", () => {
-         box.style.backgroundColor = `hsl(${Math.random() * 360}, 80%, 50%)`;
-        });
-    });
-});
-
-
-
-black.addEventListener("click", () => {
-    const boxes = document.querySelectorAll(".box");
-    boxes.forEach((box) => {
-        box.addEventListener("mouseover", () => {
-            box.style.backgroundColor = "black";
-        });
-    });
-});
-
 changeSize.addEventListener("click", () => {
-    const bgColor = document.querySelectorAll(".box").style.backgroundColor;
     const boxes = document.querySelectorAll(".box");
-    let changeGrid = parseInt(prompt("Enter the size of grid you want. (2-100)", ""));
+    const changeGrid = parseInt(prompt("Enter the size of grid you want. (2-100)", ""));
     if (changeGrid > 1 && changeGrid <= 100) {
         boxes.forEach((box) => {
             box.remove();
         }); makeGrid(changeGrid);
-        boxes.style.backgroundColor = bgColor;
         size.textContent = `Size: ${changeGrid} x ${changeGrid}`;
         } else {
             alert("Please choose a number between 2 and 100.");

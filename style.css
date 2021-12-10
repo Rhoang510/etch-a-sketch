@@ -35,7 +35,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 30px;
+    padding: 10px;
 }
 
 #container {
@@ -48,32 +48,34 @@ body {
     grid-template-rows: repeat(var(--rows), 1fr);
 }
 
-button {
+button,
+input {
+    background-color: black;
+    color: white;
+    font-weight: 900;
     width: 100px;
-    height: 30px;
+    height: 40px;
     border-radius: 5px;
+    border: 2px solid rgb(97, 106, 226);
 }
 
 button:hover,
 input:hover {
     border: 1px solid red;
-    background-color: rgb(221, 221, 221);
+    background-color: rgb(114, 168, 230);
 }
 
-button:active {
+button:active,
+input:active {
     transform: translate(2px, 2px);
 }
 
-.rgb:focus {
+.rgb:focus,
+.black:focus,
+input {
     background-color: rgb(114, 168, 230);
     transition: all 0.3s ease-in-out;
 }
-
-.black:focus {
-    background-color: rgb(114, 168, 230);
-    transition: all 0.3s ease-in-out;
-}
-
 
 #icon {
     display: flex;
