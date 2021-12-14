@@ -26,55 +26,77 @@ body {
     gap: 30px;
 }
 
-.size {
-    text-align: center;
+#size {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     color: white;
+    font-weight: bold;
 }
 
 #gridContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding: 15px;
 }
 
 #container {
     display: grid;
     background-color: rgb(49, 49, 49);
     box-shadow: 7px 7px black;
-    height: 540px;
-    width: 540px;
+    height: 550px;
+    width: 550px;
     grid-template-columns: repeat(var(--columns), 1fr);
     grid-template-rows: repeat(var(--rows), 1fr);
 }
 
 button,
-input {
+#colorPicker {
     background-color: black;
     color: white;
     font-weight: 900;
     width: 100px;
     height: 40px;
     border-radius: 5px;
-    border: 2px solid rgb(97, 106, 226);
+    border: 1px solid rgb(97, 106, 226);
 }
 
 button:hover,
-input:hover {
+#colorPicker:hover {
     border: 1px solid red;
     background-color: rgb(114, 168, 230);
 }
 
 button:active,
-input:active {
+#colorPicker:active {
     transform: translate(2px, 2px);
 }
 
 .rgb:focus,
 .black:focus,
-input {
+#colorPicker:focus {
     background-color: rgb(114, 168, 230);
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out
+}
+
+#slider {
+    -webkit-appearance: none;
+    width: 200px;
+    height: 15px;
+    background-color: black;
+    border-radius: 7px;
+    border: 1px solid rgb(97, 106, 226);
+}
+
+#slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 #icon {
@@ -88,9 +110,6 @@ input {
 }
 
 footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -98,5 +117,5 @@ footer {
     color: white;
     font-size: 18px;
     width: 100%;
-    height: 50px;
+    height: 60px;
 }

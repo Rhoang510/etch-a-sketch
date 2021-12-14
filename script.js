@@ -5,6 +5,7 @@ const black = document.querySelector(".black");
 const changeSize = document.querySelector(".changeSize");
 const size = document.querySelector(".size");
 const colorPicker = document.querySelector("#colorPicker");
+const slider = document.querySelector("#slider");
 
 function makeGrid(gridSize) {
     container.style.setProperty("--columns", gridSize);
@@ -35,7 +36,6 @@ colorPicker.addEventListener("change", () => {
     });
 });
 
-
 rgb.addEventListener("click", () => {
     const boxes = document.querySelectorAll(".box");
     boxes.forEach((box) => {
@@ -61,16 +61,12 @@ clearGrid.addEventListener("click", () => {
     });
 });
 
-changeSize.addEventListener("click", () => {
+slider.addEventListener("change", () => {
     const boxes = document.querySelectorAll(".box");
-    const changeGrid = parseInt(prompt("Enter the size of grid you want. (2-100)", ""));
-    if (changeGrid > 1 && changeGrid <= 100) {
-        boxes.forEach((box) => {
-            box.remove();
-        }); makeGrid(changeGrid);
-        size.textContent = `Size: ${changeGrid} x ${changeGrid}`;
-        } else {
-            alert("Please choose a number between 2 and 100.");
-        }
+    boxes.forEach((box) => {
+        box.remove();
+    });
+    makeGrid(slider.value);
+    size.textContent = `Size: ${slider.value} x ${slider.value}`
 });
 
