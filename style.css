@@ -51,6 +51,10 @@ body {
     grid-template-rows: repeat(var(--rows), 1fr);
 }
 
+#container {
+    cursor: url("img/paintbrush.png"), auto;
+}
+
 button,
 #colorPicker {
     background-color: black;
@@ -77,7 +81,7 @@ button:active,
 .black:focus,
 #colorPicker:focus {
     background-color: rgb(114, 168, 230);
-    transition: all 0.3s ease-in-out
+    transition: all 0.1s ease-in-out
 }
 
 #slider {
@@ -89,7 +93,19 @@ button:active,
     border: 1px solid rgb(97, 106, 226);
 }
 
+/* Chrome */
 #slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Firefox */
+#slider::-moz-range-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 25px;

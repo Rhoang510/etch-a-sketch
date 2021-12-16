@@ -6,6 +6,8 @@ const changeSize = document.querySelector(".changeSize");
 const size = document.querySelector(".size");
 const colorPicker = document.querySelector("#colorPicker");
 const slider = document.querySelector("#slider");
+let color = "black";
+let pen = false;
 
 function makeGrid(gridSize) {
     container.style.setProperty("--columns", gridSize);
@@ -15,44 +17,44 @@ function makeGrid(gridSize) {
         div.classList.add("box");
         container.appendChild(div);
     };
-        const boxes = document.querySelectorAll(".box");
-        boxes.forEach((box) => {
-            box.addEventListener ("mouseover", () => {
-                box.style.backgroundColor = "black";
-        });
-    });
+        container.addEventListener("click", togglePen);
 };
 
 makeGrid(16);
 size.textContent = "Size: 16 x 16";
 
-colorPicker.addEventListener("change", () => {
-    const newColor = document.querySelector("#colorPicker").value;
-    const boxes = document.querySelectorAll(".box");
-    boxes.forEach((box) => {
-        box.addEventListener("mouseover", () => {
-            box.style.backgroundColor = newColor;
-        });
-    });
-});
+function changeColor() {
+    switch (color) {
+      case "rgb":
+        this.style.backgroundColor = `hsl(${Math.random() * 360}, 80%, 50%)`;
+        break;
+      case "black":
+        this.style.backgroundColor = "black";
+        break;
+      case "userPick":
+        this.style.backgroundColor = colorPicker.value;
+        break;
+  }
+}
 
-rgb.addEventListener("click", () => {
+function togglePen() {
     const boxes = document.querySelectorAll(".box");
-    boxes.forEach((box) => {
-        box.addEventListener("mouseover", () => {
-            box.style.backgroundColor = `hsl(${Math.random() * 360}, 80%, 50%)`;
+    if (!pen) {
+        boxes.forEach((box) => {
+            box.addEventListener("mouseleave", changeColor);
         });
-    });
-});
+        pen = true;
+    } else {
+        boxes.forEach((box) => {
+            box.removeEventListener("mouseleave", changeColor);
+        });
+        pen = false;
+    }
+}
 
-black.addEventListener("click", () => {
-    const boxes = document.querySelectorAll(".box");
-    boxes.forEach((box) => {
-        box.addEventListener("mouseover", () => {
-            box.style.backgroundColor = "black";
-        });
-    });
-});
+rgb.addEventListener("click", () => { color = "rgb"; });
+black.addEventListener("click", () => { color = "black"; });
+colorPicker.addEventListener("click", () => { color = "userPick"; });
 
 clearGrid.addEventListener("click", () => {
     const boxes = document.querySelectorAll(".box");
@@ -67,6 +69,6 @@ slider.addEventListener("change", () => {
         box.remove();
     });
     makeGrid(slider.value);
-    size.textContent = `Size: ${slider.value} x ${slider.value}`
+    size.textContent = `Size: ${slider.value} x ${slider.value}`;
 });
 
