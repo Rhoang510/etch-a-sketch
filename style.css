@@ -2,6 +2,7 @@ html {
     position: relative;
     min-height: 100%;
 }
+
 body {
     display: flex;
     flex-direction: column;
@@ -18,6 +19,16 @@ body {
     text-shadow: 7px 7px black;
 }
 
+.msg {
+    display: flex;
+    justify-content: center;
+    color: white;
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+}
+
+/* Grid */
 .newGrid {
     display: flex;
     justify-content: center;
@@ -49,12 +60,10 @@ body {
     width: 550px;
     grid-template-columns: repeat(var(--columns), 1fr);
     grid-template-rows: repeat(var(--rows), 1fr);
-}
-
-#container {
     cursor: url("img/paintbrush.png"), auto;
 }
 
+/* Buttons */
 button,
 #colorPicker {
     background-color: black;
@@ -64,6 +73,7 @@ button,
     height: 40px;
     border-radius: 5px;
     border: 1px solid rgb(97, 106, 226);
+    cursor: pointer;
 }
 
 button:hover,
@@ -84,7 +94,8 @@ button:active,
     transition: all 0.1s ease-in-out
 }
 
-#slider {
+#slider,
+#sizeSlider {
     -webkit-appearance: none;
     width: 200px;
     height: 15px;
@@ -94,6 +105,15 @@ button:active,
 }
 
 /* Chrome */
+#sizeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
 #slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -105,6 +125,16 @@ button:active,
 }
 
 /* Firefox */
+#sizeSlider::-moz-range-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
 #slider::-moz-range-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -133,5 +163,5 @@ footer {
     color: white;
     font-size: 18px;
     width: 100%;
-    height: 60px;
+    height: 50px;
 }
