@@ -6,8 +6,8 @@ const changeSize = document.querySelector(".changeSize");
 const size = document.querySelector(".size");
 const canvas = document.querySelector(".canvas");
 const colorPicker = document.querySelector("#colorPicker");
-const slider = document.querySelector("#slider");
-const sizeSlider = document.querySelectorAll("#sizeSlider")
+const gridSlider = document.querySelector("#gridSlider");
+const canvasSlider = document.querySelector("#canvasSlider");
 let color = "black";
 let brush = false;
 
@@ -67,18 +67,17 @@ clearGrid.addEventListener("click", () => {
     });
 });
 
-slider.addEventListener("change", () => {
+gridSlider.addEventListener("change", () => {
     const boxes = document.querySelectorAll(".box");
     boxes.forEach((box) => {
         box.remove();
     });
-    makeGrid(slider.value);
-    size.textContent = `Size: ${slider.value} x ${slider.value}`;
+    makeGrid(gridSlider.value);
+    size.textContent = `Size: ${gridSlider.value} x ${gridSlider.value}`;
 });
 
-sizeSlider.addEventListener("change", () => {
-    container.style.height = sizeSlider.value;
-    container.style.width = sizeSlider.value;
-    canvas.textContent = `Canvas Size: ${sizeSlider.value} x ${sizeSlider.value}`;
+canvasSlider.addEventListener("change", () => {
+    container.style.height = canvasSlider.value + "px";
+    container.style.width = canvasSlider.value + "px";
+    canvas.textContent = `Canvas Size: ${canvasSlider.value} x ${canvasSlider.value}`;
 });
-
