@@ -92,13 +92,13 @@ button:hover,
 button:active,
 #colorPicker:active {
     transform: translate(2px, 2px);
+    transition: all 0.1s ease-in-out;
 }
 
 .rgb:focus,
 .black:focus,
 #colorPicker:focus {
     background-color: rgb(114, 168, 230);
-    transition: all 0.1s ease-in-out
 }
 
 #gridSlider,
