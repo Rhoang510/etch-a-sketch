@@ -24,7 +24,7 @@ function makeGrid(gridSize) {
 
 makeGrid(16);
 size.textContent = "Grid Size: 16 x 16";
-canvas.textContent = "Canvas Size: 540 x 540"
+canvas.textContent = "Canvas Size: 540 x 540";
 
 function toggleBrush() {
     const boxes = document.querySelectorAll(".box");
