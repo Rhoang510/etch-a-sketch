@@ -23,19 +23,19 @@ function makeGrid(gridSize) {
 };
 
 makeGrid(16);
-size.textContent = "Size: 16 x 16";
+size.textContent = "Grid Size: 16 x 16";
 canvas.textContent = "Canvas Size: 540 x 540"
 
 function toggleBrush() {
     const boxes = document.querySelectorAll(".box");
     if (!brush) {
         boxes.forEach((box) => {
-            box.addEventListener("mouseover", changeColor);
+            box.addEventListener("mouseleave", changeColor);
         });
         brush = true;
     } else {
         boxes.forEach((box) => {
-            box.removeEventListener("mouseover", changeColor);
+            box.removeEventListener("mouseleave", changeColor);
         });
         brush = false;
     }
