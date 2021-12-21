@@ -73,7 +73,7 @@ gridSlider.addEventListener("change", () => {
         box.remove();
     });
     makeGrid(gridSlider.value);
-    size.textContent = `Size: ${gridSlider.value} x ${gridSlider.value}`;
+    size.textContent = `Grid Size: ${gridSlider.value} x ${gridSlider.value}`;
 });
 
 canvasSlider.addEventListener("change", () => {
