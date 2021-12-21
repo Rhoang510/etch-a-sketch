@@ -30,12 +30,12 @@ function toggleBrush() {
     const boxes = document.querySelectorAll(".box");
     if (!brush) {
         boxes.forEach((box) => {
-            box.addEventListener("mouseleave", changeColor);
+            box.addEventListener("mouseover", changeColor);
         });
         brush = true;
     } else {
         boxes.forEach((box) => {
-            box.removeEventListener("mouseleave", changeColor);
+            box.removeEventListener("mouseover", changeColor);
         });
         brush = false;
     }
